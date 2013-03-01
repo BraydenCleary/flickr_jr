@@ -15,6 +15,10 @@ gem 'activerecord'
 
 gem 'rake'
 
+gem 'mini_magick'
+
+gem 'carrierwave'
+
 gem 'bcrypt-ruby'
 
 group :test do

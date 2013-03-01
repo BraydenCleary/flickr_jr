@@ -1,0 +1,6 @@
+<% @photos.each_with_index do |photo, index| %>
+  <%= index %><%= photo.avatar.current_path %><hr/>
+  <img src='<%= photo.avatar %>' /><hr/>
+<% end %>
+
+

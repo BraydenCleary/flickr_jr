@@ -34,9 +34,9 @@ post '/albums' do
   @album.user = current_user
 
   if @album.save
-    "A-OK CAPTAIN"
+
   else
-    "YOU SUCK"
+
   end
 end
 

@@ -11,8 +11,13 @@ require 'rubygems'
 require 'uri'
 require 'pathname'
 
+require 'mini_magick'
+
 require 'pg'
 require 'active_record'
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+
 require 'logger'
 
 require 'sinatra'
@@ -31,3 +36,7 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+CarrierWave.configure do |config|
+  config.root = "#{Dir.pwd}/public/"
+end
