@@ -11,13 +11,14 @@
   <title></title>
 </head>
 <body>
-  <a href='/index'>Home</a>
+  <a href='/'>Home</a>
   <a href='/albums'>Explore</a>
-  <a href='/users/new'>Sign Up</a>
-  <a href='/sessions/new'>Sign In</a>
   <% if session[:user_id] %>
     <a href='/logout'>Logout</a>
     <a href="/users/#{session[:user_id]}/albums/new">Upload</a>
+  <% else %>
+    <a href='/users/new'>Sign Up</a>
+    <a href='/sessions/new'>Sign In</a>
   <% end %>
 
   <%= yield %>

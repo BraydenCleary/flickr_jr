@@ -1,11 +1,22 @@
-<form action='/users' method='post'>
-  <input name='name' type='text' placeholder='Name'>
+<% if @user.errors.any? %>
+  <div class="errors">
+    <h3>There was an error saving your object.</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <input name='email' type='email' placeholder='Email'>
+<form action="<%= users_path(@user) %>" method="post">
+  <input name='user[name]' type='text' placeholder='Name' value="<%= @user.name %>">
 
-  <input name='password1' type='password' placeholder='Password'>
+  <input name='user[email]' type='email' placeholder='Email' value="<%= @user.email %>">
 
-  <input name='password2' type='password' placeholder='Confirm password'>
+  <input name='user[password]' type='password' placeholder='Password'>
+
+  <input name='user[password_confirmation]' type='password' placeholder='Confirm password'>
 
   <input type='submit' value='Log In'>
 </form>
